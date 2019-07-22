@@ -44,9 +44,9 @@
     <ul class="navbar-nav mr-auto">
         <li class="nav-item active"><%= link_to 'プロフィール変更', "#",class:"nav-link" %></li>
         <li class="nav-item active"><%= link_to "Help",'#',class:"nav-link" %></li>
-        <li class="nav-item active"> <%= link_to 'Logout', '/signout',class: "btn btn-primary" %></li>
+        <li class="nav-item active"> <%= link_to 'Logout', '/signout',class: "nav-link" %></li>
         <li class="nav-item active">  <%= link_to "ホーム", root_path ,class:"nav-link"%></li>
-        <li class="nav-item active">  <%= link_to "新規投稿",  '#', remote: true, class: "btn btn-lg btn-primary" %></li>
+        <li class="nav-item active">  <%= link_to "ライブ投稿",  '#', remote: true, class: "nav-link" %></li>
     </ul>
   </div>
   <% else %>
