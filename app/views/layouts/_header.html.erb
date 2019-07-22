@@ -1,0 +1,62 @@
+<%
+=begin%>
+ <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
+   <%= link_to "LiveStreet", root_path , id: "logo" %>
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="レスポンシブ・ナビゲーションバー">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+   <% if  logged_in?  %>
+    <div class="collapse navbar-collapse" id="Navber">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+               
+                 <li class="nav-item active"><%= link_to 'プロフィール変更', "#" %></li>
+                 <li class="nav-item active"><%= link_to "Help",   '#' %></li>
+                 <li class="nav-item active"> <%= link_to 'ログアウト',  '#', method: :delete %></li>
+                 <li class="nav-item active">  <%= link_to "ホーム", root_path %></li>
+                 <li class="nav-item active">  <%= link_to "新規投稿",  '#', remote: true, class: "btn btn-lg btn-primary" %></li>
+                 
+      </ul>
+    </div><!-- /.navbar-collapse -->
+    <% else %>
+      <div class="collapse navbar-collapse" id="Navber">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">  <%= link_to "ホーム", '#'%></li>
+                <li class="nav-item active"><%= link_to "新規登録",  '#'%></li>
+                 <li class="nav-item active"><%= link_to "Help",   '#' %></li>
+                 <li class="nav-item active"><%= link_to "ログイン",  '#'%></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+    <% end %>
+
+</nav> 
+<%
+=end%>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <%= link_to "LiveStreet", root_path , class:"navbar-brand" %>
+  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+ <% if  logged_in?  %>
+  <div class="navbar-collapse collapse" id="navbarColor02" style="">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active"><%= link_to 'プロフィール変更', "#",class:"nav-link" %></li>
+        <li class="nav-item active"><%= link_to "Help",'#',class:"nav-link" %></li>
+        <li class="nav-item active"> <%= link_to 'Logout', '/signout',class: "btn btn-primary" %></li>
+        <li class="nav-item active">  <%= link_to "ホーム", root_path ,class:"nav-link"%></li>
+        <li class="nav-item active">  <%= link_to "新規投稿",  '#', remote: true, class: "btn btn-lg btn-primary" %></li>
+    </ul>
+  </div>
+  <% else %>
+  <div class="navbar-collapse collapse" id="navbarColor02" style="">
+    <ul class="navbar-nav mr-auto">
+         <li class="nav-item active">  <%= link_to "ホーム", '#',class:"nav-link"%></li>
+         <li class="nav-item active"><%= link_to "新規登録", '#', class:"nav-link"%></li>
+         <li class="nav-item active"><%= link_to "Help", '#',class:"nav-link" %></li>
+         <li class="nav-item active"><%= link_to "ログイン", '/auth/twitter',class:"nav-link"%></li>
+    </ul>
+  </div>
+  <% end %>
+</nav>
