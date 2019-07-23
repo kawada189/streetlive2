@@ -16,8 +16,9 @@
                 <div style="overflow:hidden;">
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-md-8">
-                                <div id="datetimepicker13"></div>
+                            <div class="col-md-12">
+                                 <%= f.label :start_time,"日時" %>
+                                 <%= f.text_field :start_time, class:"form-control", id:"datetimepicker13"%>
                             </div>
                         </div>
                     </div>
@@ -127,7 +128,7 @@
               <label class="custom-file-label" for="customFile" data-browse="参照">ファイル選択...</label>
               </div>
 
-              <%= f.submit :class=>"btn float-right",if:"custom-file_btn"%>
+              <%= f.submit :class=>"btn  btn-success float-right mt-4",if:"custom-file_btn"%>
               
               </div>
             <% end %>
@@ -169,5 +170,11 @@ $(function(){
     document.getElementById('map_latitude').value = lat;
     document.getElementById('map_longitude').value = lon;
 });
+
+ let options = {
+            geocoder: new L.Control.Geocoder.Nominatim()
+        };
+        L.Control.geocoder(options).addTo(map);
+
 });
   </script>
