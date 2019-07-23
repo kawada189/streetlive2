@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190721154029) do
+ActiveRecord::Schema.define(version: 20190723034347) do
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.string "start_time"
+    t.text "contents"
+    t.string "genre"
+    t.string "image"
+    t.string "place"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.decimal "lat", precision: 9, scale: 6
+    t.decimal "lon", precision: 9, scale: 6
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "provider"

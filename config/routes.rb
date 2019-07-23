@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/signout', to: 'sessions#destroy'
 
-  resource :user, only: [:show, :index]
+  resource :users, only: [:show, :index]
+  resource :posts
  
   
 end
