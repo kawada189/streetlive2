@@ -2,15 +2,16 @@
   <h1 class="display-4">LiveStreetで路上ライブを楽しもう。</h1>
   <p class="lead">LiveStreetは路上ライブ検索アプリです。ライブを告知したいアーティストはユーザー登録をお願いします。</p>
   <hr class="my-4">
-  
+
+
 <div class="form-group">
-  <label class="col-form-label" for="inputDefault">ライブ検索</label>
-  <input type="text" class="form-control" placeholder="Default input" id="inputDefault">
+      <label class="col-form-label" for="inputDefault">都道府県を入力</label>
+    <%= form_tag(posts_url,:method => 'get') do %>
+      <%= text_field_tag :search,"",class:"form-control",id:"inputDefault"%>
+      <%= submit_tag '検索', :name => nil, class: "btn btn-primary btn-lg mt-4"%>
+    <% end %>
 </div>
 
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">検索</a>
-  </p>
 
 </div>
 
@@ -28,7 +29,18 @@
             <h4 class="card-title"><%= post.title %></h4>
             <%=link_to "詳細画面", post_path(post.id), class: 'btn btn-primary mb-4'%>
             <div class="card-footer mb-0 text-muted"><%= post.user.user_name %></div>
-        </div>
+
+              <% if logged_in? %>
+                <% if post.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
+                  <p><span>お気に入り解除: </span><%=link_to post.favorites.count, post_favorites_path(post.id), method: :delete %></p>
+                <% else %>
+                  <p><span>お気に入り登録: </span><%=link_to post.favorites.count, post_favorites_path(post.id), method: :post %></p>
+                <% end %>
+              <% else %>
+                  <p><span>お気に入り数: </span><%= post.favorites.count %></p>
+              <% end %>
+
+         </div>
      <% end %>
      </div>
 </div>

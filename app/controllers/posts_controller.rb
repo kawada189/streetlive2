@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   # before_action :authenticate, except: [:index]
   def index
-    @posts = Post.all.order(id: "DESC")
+    @posts = Post.search(params[:search]).order(id: "DESC")
   end
 
   def show
