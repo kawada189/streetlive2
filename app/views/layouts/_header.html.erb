@@ -1,5 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
    <%= link_to "LiveStreet", root_path , class:"navbar-brand" %>
+   <% if  logged_in?  %>
+   <%= link_to "ユーザーページ", users_path , class: "nav-link" %>
+   <% end %>
+   
   <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -10,7 +14,7 @@
         <li class="nav-item active"><%= link_to "Help",'#',class:"nav-link" %></li>
         <li class="nav-item active"> <%= link_to 'Logout', '/signout',class: "nav-link" %></li>
         <li class="nav-item active">  <%= link_to "ホーム", root_path ,class:"nav-link"%></li>
-        <li class="nav-item active">  <%= link_to "ライブ投稿",new_posts_path, remote: true, class: "nav-link" %></li>
+        <li class="nav-item active">  <%= link_to "ライブ投稿",new_post_path, remote: true, class: "nav-link" %></li>
     </ul>
   </div>
   <% else %>

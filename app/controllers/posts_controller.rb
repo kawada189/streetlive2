@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate, except: [:index]
+  # before_action :authenticate, except: [:index]
   def index
     @posts = Post.all.order(id: "DESC")
   end
@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @user = @post.user
+
   end
 
   def new
@@ -20,9 +21,16 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
+  def destroy
+    @post = current_user.posts.find_by(id: params[:id])
+    @post.destroy
+    flash[:success] = "投稿を消しました。"
+    redirect_to users_path
+  end
+
   private
   def post_params
-    params.require(:post).permit(:title, :start_time, :contents,:place,:genre,:image) 
+    params.require(:post).permit(:title, :start_time, :contents,:place,:genre,:image,:lat,:lon) 
   end
 
 end
