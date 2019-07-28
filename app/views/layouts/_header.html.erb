@@ -11,7 +11,6 @@
  <% if  logged_in?  %>
   <div class="navbar-collapse collapse" id="navbarColor02" style="">
     <ul class="navbar-nav mr-auto">
-        <li class="nav-item active"><%= link_to "Help",'#',class:"nav-link" %></li>
         <li class="nav-item active"> <%= link_to 'Logout', '/signout',class: "nav-link" %></li>
         <li class="nav-item active">  <%= link_to "ホーム", root_path ,class:"nav-link"%></li>
         <li class="nav-item active">  <%= link_to "ライブ投稿",new_post_path, remote: true, class: "nav-link" %></li>
@@ -20,10 +19,8 @@
   <% else %>
   <div class="navbar-collapse collapse" id="navbarColor02" style="">
     <ul class="navbar-nav mr-auto">
-         <li class="nav-item active">  <%= link_to "ホーム", '#',class:"nav-link"%></li>
-         <li class="nav-item active"><%= link_to "新規登録", '#', class:"nav-link"%></li>
-         <li class="nav-item active"><%= link_to "Help", '#',class:"nav-link" %></li>
-         <li class="nav-item active"><%= link_to "ログイン", '/auth/twitter',class:"nav-link"%></li>
+         <li class="nav-item active">  <%= link_to "ホーム", root_path ,class:"nav-link"%></li>
+         <li class="nav-item active"><%= link_to "twitterでユーザー登録", '/auth/twitter',class:"nav-link"%></li>
     </ul>
   </div>
   <% end %>
