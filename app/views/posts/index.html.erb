@@ -18,7 +18,7 @@
   
 <div class="row">
      <% @posts.each do |post| %>
-        <div class="card text-center col-xs-6 col-sm-2 col-md-2 m-3">
+        <div class="card text-center col-xs-6 col-sm-3 col-md-3 m-4">
         <% if post.image? %>
            <%=image_tag post.image.to_s , alt:"Card image", class:"card-img-top mt-4"%> 
         <% else %>
