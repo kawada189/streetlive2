@@ -12,7 +12,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
 
   def store_dir
-    "uploads/#{Post.class.to_s.underscore}/#{:image}/#{Post.ids}"
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.ids}"
   end
 
   def extension_whitelist
