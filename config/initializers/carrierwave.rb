@@ -6,7 +6,7 @@ CarrierWave.configure do |config|
   if Rails.env.production?
     config.storage :fog
     config.fog_provider = 'fog/aws'
-    config.asset_host = 'https:///s3livestreet.s3.amazonaws.com'
+    config.asset_host = 'https://s3livestreet.s3.amazonaws.com'
     config.fog_directory  =  ENV['S3_BUCKET']
     config.fog_credentials = {
       provider: 'AWS',
