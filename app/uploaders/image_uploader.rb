@@ -4,13 +4,8 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   process resize_to_fit: [200, 200]
 
-  if Rails.env.production?
-    storage :fog
-  else
-    storage :file
-  end
-
-
+  storage :fog
+  
   def store_dir
     "uploads/#{Post.class.to_s.underscore}/#{:image}/#{Post.ids}"
   end
