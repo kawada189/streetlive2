@@ -12,11 +12,19 @@
     <p class="card-text">内容</p>
     <p class="card-text">  <%= @post.contents%></p>
     <p class="card-text">詳しい場所</p>
-    <div id="map" style="width: 600px; height: 400px"></div>
+    <div class="map_container">
+      <div id="map-show"></div>
+       <style type="text/css">
+                  #map-show {
+                    height:300px;
+                    width:300px;
+                  }
+                </style>
+    </dvi>
     <script type="text/javascript">
     var maplat = <%= @post.lat %>;
     var maplon = <%= @post.lon %>;
-    var map = L.map('map').setView([maplat, maplon], 15);
+    var map = L.map('map-show').setView([maplat, maplon], 15);
 
     var tiles = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         maxZoom: 18,
