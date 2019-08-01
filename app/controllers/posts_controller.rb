@@ -29,7 +29,7 @@ class PostsController < ApplicationController
   end
 
   def map
-    @marker_all = Post.all
+    @map_all = Post.all
   end
 
   private
