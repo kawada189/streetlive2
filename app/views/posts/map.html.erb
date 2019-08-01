@@ -18,7 +18,9 @@ $(function(){
   <% @map_all.each do |maps| %>
     var mapslat = <%= maps.lat %>;
     var mapslon = <%= maps.lon %>;
+    var maptitle = '<%= maps.title %>';
     L.marker([mapslat,mapslon])
+    .bindPopup(maptitle)
     .addTo(map);
   <% end %>
     
