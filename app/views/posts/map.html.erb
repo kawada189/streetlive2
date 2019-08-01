@@ -1,0 +1,35 @@
+<h1></h1>
+<div id="map-container" class="z-depth-1-half map-container mt-4" style="height: 500px">
+  <iframe id="map_all" frameborder="0"style="border:0" allowfullscreen></iframe>
+</div>
+
+<script>
+$(function(){
+  var map, newMarker, markerLocation;
+    map = L.map('map-container').setView([36.575,135.984], 5);
+    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+        maxZoom: 18
+    }).addTo(map);
+    newMarkerGroup = new L.LayerGroup();
+  
+  var theMarker = {};
+  map.on('click',function(e){
+    lat = e.latlng.lat;
+    lon = e.latlng.lng;
+        if (theMarker != undefined) {
+              map.removeLayer(theMarker);
+        };
+    //Add a marker to show where you clicked.
+    theMarker = L.marker([lat,lon]).addTo(map);  
+    document.getElementById('map_latitude').value = lat;
+    document.getElementById('map_longitude').value = lon;
+});
+
+ let options = {
+            geocoder: new L.Control.Geocoder.Nominatim()
+        };
+        L.Control.geocoder(options).addTo(map);
+
+});
+  </script>

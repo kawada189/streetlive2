@@ -28,6 +28,10 @@ class PostsController < ApplicationController
     redirect_to users_path
   end
 
+  def map
+    @marker_all = Post.all
+  end
+
   private
   def post_params
     params.require(:post).permit(:title, :start_time, :contents,:place,:genre,:image,:lat,:lon) 
