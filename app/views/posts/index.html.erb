@@ -28,7 +28,7 @@
             <p class="card-text"><%= post.start_time %></p>
             <h4 class="card-title"><%= post.title %></h4>
             <%=link_to "詳細画面", post_path(post.id), class: 'btn btn-primary mb-4'%>
-            <div class="card-footer mb-0 text-muted"><%= post.user.user_name %></div>
+            <div class="card-footer mb-0 text-muted"><%=link_to post.user.user_name,users_path %></div>
 
               <% if logged_in? %>
                 <% if post.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
