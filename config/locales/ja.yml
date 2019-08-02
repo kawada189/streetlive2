@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    models:
+      post: 投稿
+    attributes:
+      post:
+        title: タイトル
+        place: 開催場所
+        content: イベント内容
+        lat: 緯度
+        lon: 経度
+        image: サムネイル
