@@ -6,11 +6,15 @@
   </div>
   
   <%= image_tag current_user.image_url, alt:"Card image",class:"rounded-circle  mx-auto d-block",style:"height: 150px; width: 150px; " %>
-  
+<%
+=begin%>
+   
   <div class="card-body">
    <%= link_to 'プロフィール変更', "#",class:"card-text btn btn-outline-info" %>
   </div>
-  
+   
+<%
+=end%>
   <div class="card-body">
     <p>活動履歴</p>
     <div class="row">

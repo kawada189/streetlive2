@@ -21,6 +21,12 @@
                   }
                 </style>
     </dvi>
+    <% if current_user %>
+    <div class="card-body">
+      <%= link_to "投稿編集する", edit_post_path ,class:"btn btn-success m-4"%>
+      <%= link_to "投稿削除する",@post, method: :delete, data: { confirm: "本当に消しますか？" },class:"btn btn-danger" %>
+    </div>
+    <% end %>
     <script type="text/javascript">
     var maplat = <%= @post.lat %>;
     var maplon = <%= @post.lon %>;
