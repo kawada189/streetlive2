@@ -28,9 +28,10 @@
             <p class="card-text"><%= post.start_time %></p>
             <h4 class="card-title"><%= post.title %></h4>
             <%=link_to "詳細画面", post_path(post.id), class: 'btn btn-primary mb-4'%>
-            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" data-text="<%= post.title %>" class="twitter-share-button" data-show-count="false">Tweet</a>
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" data-text="<%= post.title %> #livestreet #路上ライブ" class="twitter-share-button" data-show-count="false">Tweet</a>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            <div class="card-footer mb-0 text-muted"><%=link_to post.user.user_name,users_path %></div>
+
+            <div class="card-footer mb-0 text-muted"><%=link_to post.user.user_name,post.user %></div>
 
               <% if logged_in? %>
                 <% if post.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
