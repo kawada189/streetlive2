@@ -30,10 +30,11 @@
     var maplon = <%= @post.lon %>;
     var map = L.map('map-show').setView([maplat, maplon], 15);
 
-    var tiles = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-        maxZoom: 18,
-        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    });
+    var tiles = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',
+      {
+        maxZoom: 20,
+        subdomains:['mt0','mt1','mt2','mt3']
+      });
 
     map.addLayer(tiles);
     L.marker([maplat, maplon]).bindPopup("マーカーをクリックしました。").addTo(map);
