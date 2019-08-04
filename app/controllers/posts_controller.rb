@@ -43,6 +43,7 @@ class PostsController < ApplicationController
       render 'edit'
     end
   end 
+  
   def map
     @map_all = Post.all
   end
