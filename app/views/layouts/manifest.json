@@ -1,0 +1,8 @@
+{
+    "name": "livestreet",
+    "short_name": "livestreet",
+    "start_url": "/",
+    "display": "standalone",
+    "gcm_sender_id": "1で取得したGoogleのプロジェクトナンバー",
+    "gcm_user_visible_only": true
+  }
