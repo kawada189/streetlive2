@@ -18,6 +18,10 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)  
     @post.user_id = current_user.id
     if @post.save
+      CreateNotification.call(
+        contents: { 'en' => 'Post created!', 'ja' => 'ポストが作成されました！' },
+        type: 'posts#create'
+      )
       redirect_to root_path
     else 
       render 'new'

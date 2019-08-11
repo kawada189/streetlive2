@@ -29,6 +29,8 @@ gem 'bootstrap4-datetime-picker-rails'
 gem 'momentjs-rails'
 gem "font-awesome-rails"
 
+gem 'httparty'
+
 gem 'rails-i18n'
 group :development, :test do
   gem 'sqlite3', '1.3.13'
